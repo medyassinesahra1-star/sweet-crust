@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff8f1">
+  <title>Sweet Crust | Artisan Pastry Shop</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="#">🥐 Sweet Crust</a>
+    <nav>
+      <a href="#menu">Our Menu</a>
+      <a href="#custom">Custom Orders</a>
+      <a href="#checkout">Checkout</a>
+    </nav>
+    <a class="cart-link" href="#checkout">
+      Cart <span id="cart-count">0</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">FRESH FROM OUR OVEN</span>
+        <h1>A little sweetness<br>delivered to you.</h1>
+        <p>Handcrafted pastries, delicious cakes, and your favorite treats, made with love.</p>
+        <a class="button primary" href="#menu">Explore our menu</a>
+      </div>
+      <div class="hero-image" role="img" aria-label="Freshly baked croissants and pastries"></div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">MADE FRESH DAILY</span>
+          <h2>Our favorites</h2>
+        </div>
+        <p>Choose your treats and add them to your basket.</p>
+      </div>
+      <div id="product-grid" class="product-grid">
+        <p>Loading our fresh menu...</p>
+      </div>
+    </section>
+
+    <section class="custom-section" id="custom">
+      <div>
+        <span class="eyebrow">SOMETHING SPECIAL?</span>
+        <h2>Craving something else?</h2>
+        <p>Tell us what you would like. Our bakery team will review your request and confirm availability and price.</p>
+      </div>
+      <div class="custom-form">
+        <label for="custom-request">Your custom food request</label>
+        <textarea id="custom-request" maxlength="1000"
+          placeholder="Example: A chocolate birthday cake for 10 people, with strawberries..."
+        ></textarea>
+        <p class="muted">Custom requests need confirmation before preparation.</p>
+      </div>
+    </section>
+
+    <section class="section checkout-section" id="checkout">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">ALMOST THERE</span>
+          <h2>Your order</h2>
+        </div>
+      </div>
+
+      <div class="checkout-layout">
+        <div class="panel">
+          <h3>Your basket</h3>
+          <div id="cart-items">
+            <p class="muted">Your basket is empty. Add something delicious!</p>
+          </div>
+
+          <div class="total-row">
+            <span>Subtotal</span>
+            <strong id="subtotal">0.00 TND</strong>
+          </div>
+          <div class="total-row">
+            <span>Delivery fee</span>
+            <strong id="delivery-fee">5.00 TND</strong>
+          </div>
+          <div class="total-row grand-total">
+            <span>Total</span>
+            <strong id="total">0.00 TND</strong>
+          </div>
+          <p class="muted">Delivery fees are illustrative. Update them for your delivery area.</p>
+        </div>
+
+        <form id="order-form" class="panel">
+          <h3>Delivery details</h3>
+
+          <label for="customer-name">Full name *</label>
+          <input id="customer-name" name="customerName"
+            autocomplete="name" maxlength="100" required>
+
+          <label for="phone">Phone number *</label>
+          <input id="phone" name="phone" type="tel"
+            autocomplete="tel" maxlength="30" required>
+
+          <label for="address">Delivery address *</label>
+          <textarea id="address" name="address" autocomplete="street-address"
+            maxlength="500" placeholder="Street, building, neighborhood, city"
+            required></textarea>
+
+          <label for="location-notes">Directions for the driver</label>
+          <input id="location-notes" name="locationNotes" maxlength="300"
+            placeholder="Apartment, floor, nearby landmark...">
+
+          <label for="coordinates">Map coordinates (optional)</label>
+          <input id="coordinates" name="coordinates"
+            placeholder="36.8065, 10.1815"
+            pattern="-?[0-9]+(\.[0-9]+)?\s*,\s*-?[0-9]+(\.[0-9]+)?">
+          <p class="muted">Enter latitude, longitude if you know them.</p>
+
+          <button class="button secondary" type="button" id="use-location">
+            Use my current location
+          </button>
+          <p id="location-message" class="muted" aria-live="polite"></p>
+
+          <label for="payment">Payment method *</label>
+          <select id="payment" name="paymentMethod" required>
+            <option value="cash">Cash on delivery</option>
+            <option value="online">Online payment (not yet activated)</option>
+          </select>
+          <p class="muted">Online payment requires a payment-provider integration.</p>
+
+          <label for="notes">Additional order notes</label>
+          <textarea id="notes" name="notes" maxlength="500"
+            placeholder="Allergies, delivery preferences, or other instructions"></textarea>
+
+          <button id="place-order" class="button primary full-width" type="submit">
+            Place my order
+          </button>
+          <p id="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="#">🥐 Sweet Crust</a>
+    <p>Freshly baked, lovingly delivered.</p>
+    <p>© <span id="year"></span> Sweet Crust Bakery</p>
+  </footer>
+</body>
+</html>
